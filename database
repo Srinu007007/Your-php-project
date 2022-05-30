@@ -1,0 +1,222 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2022 at 06:12 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `templemanagement`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `darshanbooking`
+--
+
+CREATE TABLE `darshanbooking` (
+  `id` int(11) NOT NULL,
+  `dateof` varchar(20) NOT NULL,
+  `timeof` varchar(20) NOT NULL,
+  `totalmemebers` int(11) NOT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `country` varchar(45) NOT NULL,
+  `identityproof` varchar(45) NOT NULL,
+  `identityproofno` varchar(45) NOT NULL,
+  `message` varchar(100) NOT NULL,
+  `useremail` varchar(100) NOT NULL,
+  `bookingdate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `amount` int(11) NOT NULL,
+  `paymenttype` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `darshanbooking`
+--
+
+INSERT INTO `darshanbooking` (`id`, `dateof`, `timeof`, `totalmemebers`, `city`, `state`, `country`, `identityproof`, `identityproofno`, `message`, `useremail`, `bookingdate`, `amount`, `paymenttype`) VALUES
+(1, '2022-05-27 ', '09:35', 5, 'Srikakulam', 'Andhra pradesh', 'Indian', 'Adhar card', '684725369852', 'NO', 'narayanasettypavankumar@gmail.com', '2022-05-24 05:02:01', 500, 'Credit card'),
+(2, '2022-06-01 ', '11:50', 7, 'Vishakaptanam', 'Andhra pradesh', 'indian', 'Adhar card', '562345628956', 'NO', 'guntukusrinu24@gmail.com', '2022-05-24 05:18:14', 700, 'Debit card'),
+(3, '2022-06-03 ', '16:53', 9, 'hydarabed', 'Telagana', 'Indian', 'Voter card', 'WER89635412', 'NO', 'guntukusrinu24@gmail.com', '2022-05-24 06:20:42', 900, 'Credit card'),
+(4, '2022-06-03 ', '09:10', 8, 'vizag', 'Andhra Pradesh', 'Indian', 'Adhar card', '963578451256', 'NO', 'lokesh@gamail.com', '2022-05-24 08:40:09', 800, 'Credit card'),
+(5, '2022-06-10 ', '04:50', 3, 'Vishakapatam', 'AP', 'india', 'Adhar card', '2525125212522525251252125212521252125252125', 'NO', 'ramr4288@gmail.com', '2022-05-27 08:02:05', 300, 'UPI');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donation`
+--
+
+CREATE TABLE `donation` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `mobileno` varchar(15) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `pannumber` varchar(50) NOT NULL,
+  `paymentoption` varchar(50) NOT NULL,
+  `register_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `useremail` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `donation`
+--
+
+INSERT INTO `donation` (`id`, `name`, `mobileno`, `city`, `state`, `country`, `amount`, `pannumber`, `paymentoption`, `register_time`, `useremail`) VALUES
+(1, ' Pawan Kumar', '7396095154', 'Srikakulam', 'Andhra pradesh', 'Indian', 1116, 'pkns123n', 'cash', '2022-05-24 05:04:32', 'narayanasettypavankumar@gmail.com'),
+(2, ' Roopa', '8143068007', 'Vishakaptanam', 'Andhra pradesh', 'Indian', 2116, 'pawn1452p', 'Wallet', '2022-05-24 05:20:25', 'guntukusrinu24@gmail.com'),
+(3, ' Srinu', '9676377687', 'Srikakulam', 'Andhra pradesh', 'Indian', 5116, '6398756520', 'Wallet', '2022-05-24 06:22:40', 'guntukusrinu24@gmail.com'),
+(4, ' Ramu', '8745621548', 'vizag', 'Andhra pradesh', 'Indian', 1116, 'qweq5865qq', 'UPI', '2022-05-24 08:41:01', 'lokesh@gamail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sevasbooking`
+--
+
+CREATE TABLE `sevasbooking` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `sevaname` text NOT NULL,
+  `sevatype` varchar(20) NOT NULL,
+  `mbl` varchar(20) NOT NULL,
+  `useremail` varchar(40) NOT NULL,
+  `bookingdate` varchar(40) NOT NULL,
+  `register_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sevasbooking`
+--
+
+INSERT INTO `sevasbooking` (`id`, `name`, `sevaname`, `sevatype`, `mbl`, `useremail`, `bookingdate`, `register_date`) VALUES
+(1, 'Pawan Reddy', 'Swamivari Nitya bhogam ', 'annuel 3116', '7396095154', 'narayanasettypavankumar@gmail.com', '2022-05-25T08:30', '2022-05-24 05:07:37'),
+(2, 'Roopa', 'Sahastra naamaarchana ', 'annuel 1000', '8143068007', 'guntukusrinu24@gmail.com', '2022-05-25T12:53', '2022-05-24 05:21:16'),
+(3, 'Srinivasa Rao', 'Abhishekam ', 'annuel 2000', '9676377687', 'guntukusrinu24@gmail.com', '2022-06-04T12:56', '2022-05-24 06:25:38'),
+(4, 'Lokesh', 'Swamivari Kalyana Seva ', 'annuel 5116', '85245678952', 'lokesh@gamail.com', '2022-05-25T18:15', '2022-05-24 08:41:30'),
+(5, 'Ram kumar', 'Nitya bhogam ', 'annuel 100000', '7036190273', 'ramr4288@gmail.com', '2022-06-22T15:38', '2022-05-27 08:06:42'),
+(6, 'Rama', 'Swamivari Kalyana Seva ', 'day 516 ', '7036190273', 'guntukusrinu24@gmail.com', '2022-06-04T12:57', '2022-05-30 03:23:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `mbl` varchar(13) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `Register_time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `mbl`, `password`, `Register_time`) VALUES
+(1, 'Srinivasa Rao', 'Guntuku', 'guntukusrinu24@gmail.com', '8712388817', 'sri', '2022-05-24 04:53:29'),
+(2, 'Pavan Kumar', 'Narayanasetty', 'narayanasettypavankumar@gmail.com', '7396095154', 'pavan123', '2022-05-24 04:55:07'),
+(3, 'Srikanth', 'Potnuru', 'srikanthpotnuru@gmail.com', '8096801141', 'Sri@143', '2022-05-24 04:56:54'),
+(4, 'Lokesh', 'vadada', 'lokesh@gamail.com', '9852456863', '1234', '2022-05-24 08:37:06'),
+(5, 'ram', 'kumar', 'ramr4288@gmail.com', '7036190273', 'ram7036', '2022-05-27 07:58:46');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `darshanbooking`
+--
+ALTER TABLE `darshanbooking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `donation`
+--
+ALTER TABLE `donation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sevasbooking`
+--
+ALTER TABLE `sevasbooking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `darshanbooking`
+--
+ALTER TABLE `darshanbooking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `donation`
+--
+ALTER TABLE `donation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `sevasbooking`
+--
+ALTER TABLE `sevasbooking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
